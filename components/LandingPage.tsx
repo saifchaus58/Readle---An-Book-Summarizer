@@ -192,11 +192,11 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStart }) => {
 
       {/* CTA Section */}
       <section className="py-48 px-6 bg-white text-center">
-        <div className="max-w-4xl mx-auto space-y-16">
+        <div className="max-w-4xl mx-auto space-y-12">
           <h2 className="text-5xl md:text-8xl font-medium tracking-tighter text-[#0F172A] leading-tight">Your library is <br/><span className="italic font-light text-gray-300">waiting to bloom.</span></h2>
           <div className="flex justify-center">
-            <Button onClick={onStart} className="!px-12 !py-6 !text-[11px] !rounded-full group relative overflow-hidden shadow-2xl shadow-pink-200/50">
-              Open Your Vault <ArrowRight className="ml-4 transition-transform group-hover:translate-x-2" />
+            <Button onClick={onStart} className="!px-8 !py-4 !text-[10px] !rounded-full group relative overflow-hidden shadow-2xl shadow-pink-200/50">
+              Open Your Vault <ArrowRight className="ml-4 transition-transform group-hover:translate-x-2" size={16} />
             </Button>
           </div>
         </div>
