@@ -1,23 +1,18 @@
-import path from 'path';
-import { defineConfig, loadEnv } from 'vite';
+
+import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-export default defineConfig(({ mode }) => {
-    const env = loadEnv(mode, '.', '');
-    return {
-      server: {
-        port: 3000,
-        host: '0.0.0.0',
-      },
-      plugins: [react()],
-      define: {
-        'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY),
-        'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY)
-      },
-      resolve: {
-        alias: {
-          '@': path.resolve(__dirname, '.'),
-        }
-      }
-    };
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [react()],
+  define: {
+    // Vite does not automatically inject process.env into the browser.
+    // This mapping ensures process.env.API_KEY is available as required by the instructions.
+    'process.env.API_KEY': JSON.stringify(process.env.API_KEY),
+  },
+  build: {
+    outDir: 'dist',
+    sourcemap: false,
+    minify: 'terser',
+  },
 });
